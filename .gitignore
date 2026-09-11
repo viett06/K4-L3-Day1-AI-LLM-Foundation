@@ -1,10 +1,22 @@
 # KHÔNG BAO GIỜ commit API key
 .env
+.env.local
+*.env.local
 
 # Tài liệu nội bộ của giảng viên — không phát cho học viên
 docs/
 
+# Môi trường ảo Python
+venv/
 .venv/
+env/
 __pycache__/
+*.pyc
 .pytest_cache/
 solution.zip
+
+# IDE / editor
+.idea/
+.vscode/
+*.swp
+.DS_Store

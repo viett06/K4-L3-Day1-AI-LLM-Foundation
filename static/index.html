@@ -1,0 +1,84 @@
+<!doctype html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Trợ Lý AI — Mini Project</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="app">
+    <aside class="sidebar">
+      <div class="brand">
+        <span class="brand-dot"></span>
+        <div>
+          <h1>Trợ Lý AI</h1>
+          <p class="brand-sub">K4 · Day 1 · Mini Project</p>
+        </div>
+      </div>
+
+      <div class="field">
+        <label for="persona">Persona (system prompt)</label>
+        <textarea id="persona" rows="4">Bạn là trợ giảng thân thiện của khóa AI, trả lời ngắn gọn và dễ hiểu bằng tiếng Việt.</textarea>
+      </div>
+
+      <div class="presets">
+        <button class="chip" data-persona="Bạn là trợ giảng thân thiện của khóa AI, trả lời ngắn gọn và dễ hiểu bằng tiếng Việt.">Trợ giảng</button>
+        <button class="chip" data-persona="Bạn là chuyên gia review code Python, chỉ ra lỗi và cách sửa cụ thể.">Reviewer code</button>
+        <button class="chip" data-persona="Bạn là hướng dẫn viên du lịch, trả lời sinh động và gợi ý cụ thể.">HDV du lịch</button>
+      </div>
+
+      <div class="stats">
+        <div class="stat">
+          <span class="stat-value" id="stat-turns">0</span>
+          <span class="stat-label">Lượt hỏi–đáp</span>
+        </div>
+        <div class="stat">
+          <span class="stat-value" id="stat-tokens">0</span>
+          <span class="stat-label">Tổng token</span>
+        </div>
+        <div class="stat">
+          <span class="stat-value" id="stat-cost">$0.0000</span>
+          <span class="stat-label">Chi phí ước tính</span>
+        </div>
+      </div>
+
+      <div class="model-badge">
+        <span id="model-name">gpt-4o</span>
+        <span id="api-status" class="status-dot" title="Trạng thái API key"></span>
+      </div>
+
+      <button id="reset-btn" class="btn-ghost">↺ Bắt đầu phiên mới</button>
+    </aside>
+
+    <main class="main">
+      <nav class="tabs">
+        <button class="tab active" data-tab="chat">💬 Trợ lý</button>
+        <button class="tab" data-tab="compare">⚖️ So sánh model</button>
+      </nav>
+
+      <section id="tab-chat" class="panel active">
+        <div id="messages" class="messages">
+          <div class="empty-state">
+            <p>Chưa có tin nhắn nào. Hãy đặt câu hỏi để bắt đầu trò chuyện với trợ lý.</p>
+          </div>
+        </div>
+        <form id="chat-form" class="composer">
+          <textarea id="chat-input" placeholder="Nhập câu hỏi... (Enter để gửi, Shift+Enter xuống dòng)" rows="1"></textarea>
+          <button type="submit" id="send-btn">Gửi</button>
+        </form>
+      </section>
+
+      <section id="tab-compare" class="panel">
+        <form id="compare-form" class="compare-form">
+          <textarea id="compare-input" placeholder="Nhập một prompt để so sánh GPT-4o và GPT-4o-mini..." rows="3"></textarea>
+          <button type="submit" id="compare-btn">So sánh</button>
+        </form>
+        <div id="compare-result" class="compare-result"></div>
+      </section>
+    </main>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>
